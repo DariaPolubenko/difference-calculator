@@ -42,6 +42,7 @@ bin/
 ### Mac OS ###
 .DS_Store
 ../.DS_Store
+/../.DS_Store
 ../../.DS_Store
 java-project-71/**/.DS_Store
 ~/java-project-71/.DS_Store
