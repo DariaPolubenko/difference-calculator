@@ -50,3 +50,5 @@ java-project-71/**/.DS_Store
 ### Asciinema ###
 app/demo.cast
 demo.cast
+
+/file/
