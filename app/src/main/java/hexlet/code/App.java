@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import picocli.CommandLine;
+import java.util.concurrent.Callable;
 
 @CommandLine.Command(
         name = "gendiff",
@@ -8,12 +9,13 @@ import picocli.CommandLine;
         version = "gendiff 1.0",
         description = "Compares two configuration files and shows a difference.")
 
-public class App implements Runnable {
+public class App implements Callable<Integer> {
     @Override
-    public void run() {
+    public Integer call() throws Exception {
         System.out.println("Hello, World!");
+        return 0;
     }
-    public static void main(String[] args) {
+    public static void main(String... args) {
         int exitCode = new CommandLine(new App()).execute(args);
         System.exit(exitCode);
     }
