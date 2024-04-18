@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import java.sql.SQLOutput;
 import java.util.concurrent.Callable;
 import java.util.Map;
 import java.math.BigInteger;
@@ -59,6 +60,8 @@ public class App implements Callable<Integer> {
             throw new Exception("File '" + fullPath + "' does not exist");
         }
         var content = Files.readString(fullPath);
+
+        System.out.println("строка " + content);
         return Parser.parseJson(content);
     }
 
