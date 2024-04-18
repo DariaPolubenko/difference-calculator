@@ -8,7 +8,6 @@ public class Differ {
 
        Map result = new HashMap<>(data1);
 
-
        return "A";
     }
 }
