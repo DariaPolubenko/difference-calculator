@@ -41,20 +41,23 @@ public class App implements Callable<Integer> {
         var data1 = getData(filepath1);
         var data2 = getData(filepath2);
 
-        var comparisonResult = Differ.generate(data1, data2);
+        System.out.println(data1);
+        System.out.println(data2);
+
+
+        Map comparisonResult = Differ.generate(data1, data2);
 
         System.out.println(comparisonResult);
 
         return 0;
     }
 
-    public static String getData(Path filepath) throws Exception {
+    public static Map getData(Path filepath) throws Exception {
         var fullPath = filepath.toAbsolutePath().normalize();
 
         if (!Files.exists(fullPath)) {
             throw new Exception("File '" + fullPath + "' does not exist");
         }
-
         var content = Files.readString(fullPath);
         return Parser.parseJson(content);
     }

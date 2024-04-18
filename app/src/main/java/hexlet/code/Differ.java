@@ -4,10 +4,37 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Differ {
-   public static String generate(Map data1, Map data2) {
+    public static Map generate(Map data1, Map data2) {
 
-       Map result = new HashMap<>(data1);
+        Map result = new HashMap<>();
+        //var result = new StringBuilder();
 
-       return "A";
+        // знаю, что цикл в цикле - решение merda, но пока не понимаю
+        // как решить оптимальнее, не в лоб
+        // возможно, тут могут сработать функции/стримы, но х(
+
+        for (var key1 : data1.keySet()) {
+
+            for (var key2 : data2.keySet()) {
+
+                if (data1.containsKey(key2)) {
+                    var value1 = data1.get(key1);
+                    var value2 = data2.get(key2);
+
+                    if (value1.equals(value2)) {
+                        result.put("  " + key1, value1);
+                    } else {
+                        result.put("- " + key1, value1);
+                        result.put("+ " + key1, value2);
+                    }
+                } else if (!data2.containsKey(key1)) {
+                    result.put("- " + key1, data1.get(key1));
+                } else if (!data1.containsKey(key2)) {
+                    result.put("+ " + key2, data1.get(key2));
+                }
+            }
+        }
+        return result;
     }
 }
+
