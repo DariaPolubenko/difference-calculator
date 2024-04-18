@@ -37,9 +37,6 @@ public class App implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        //byte[] fileContents = Files.readAllBytes(filepath1.toPath());
-        //byte[] digest = MessageDigest.getInstance(format).digest(fileContents);
-        //System.out.printf("%0" + (digest.length*2) + "x%n", new BigInteger(1, digest));
 
         //Path filePath1 = Paths.get("src/test/resources/file1.json").toAbsolutePath().normalize();
         //Path filePath2 = Paths.get("src/test/resources/file2.json").toAbsolutePath().normalize();
@@ -55,6 +52,9 @@ public class App implements Callable<Integer> {
 
         var comparisonResult = Differ.generate(parseContent1, parseContent2);
         System.out.println(comparisonResult);
+
+        System.out.println(parseContent1);
+        System.out.println(parseContent2);
 
         return 0;
     }
