@@ -38,27 +38,25 @@ public class App implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
 
-        var filePath1 = filepath1.toAbsolutePath().normalize();
-        var filePath2 = filepath2.toAbsolutePath().normalize();
+        var absolutePath1 = filepath1.toAbsolutePath().normalize();
+        var absolutePath2 = filepath2.toAbsolutePath().normalize();
 
-        var contentOfFile1 = Files.readString(filePath1);
-        var contentOfFile2 = Files.readString(filePath2);
+        var content1 = Files.readString(absolutePath1);
+        var content2 = Files.readString(absolutePath2);
 
-        var parseContent1 = parseJson(contentOfFile1);
-        var parseContent2 = parseJson(contentOfFile2);
+        var parseContent1 = parseJson(content1);
+        var parseContent2 = parseJson(content2);
 
         var comparisonResult = Differ.generate(parseContent1, parseContent2);
-        System.out.println(comparisonResult);
 
-        System.out.println(parseContent1);
-        System.out.println(parseContent2);
+        System.out.println(comparisonResult);
 
         return 0;
     }
 
     public static Map parseJson(String content) throws Exception {
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(content, Map.class);
+        ObjectMapper parseContent = new ObjectMapper();
+        return parseContent.readValue(content, Map.class);
     }
 
     public static void main(String[] args) {
