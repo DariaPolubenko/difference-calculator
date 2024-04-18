@@ -30,10 +30,10 @@ public class App implements Callable<Integer> {
     private String format = "stylish";
 
     @Parameters(index = "0", description = "path to first file", paramLabel = "filepath1")
-    private File filepath1;
+    private Path filepath1;
 
     @Parameters(index = "1", description = "path to second file", paramLabel = "filepath2")
-    private File filepath2;
+    private Path filepath2;
 
     @Override
     public Integer call() throws Exception {
@@ -41,8 +41,8 @@ public class App implements Callable<Integer> {
         //Path filePath1 = Paths.get("src/test/resources/file1.json").toAbsolutePath().normalize();
         //Path filePath2 = Paths.get("src/test/resources/file2.json").toAbsolutePath().normalize();
 
-        var filePath1 = Paths.get(filepath1).toAbsolutePath().normalize();
-        var filePath2 = Paths.get(filepath2).toAbsolutePath().normalize();
+        var filePath1 = filepath1.toAbsolutePath().normalize();
+        var filePath2 = filepath2.toAbsolutePath().normalize();
 
         var contentOfFile1 = Files.readString(filePath1);
         var contentOfFile2 = Files.readString(filePath2);
