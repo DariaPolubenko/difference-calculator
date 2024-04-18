@@ -38,9 +38,6 @@ public class App implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
 
-        //Path filePath1 = Paths.get("src/test/resources/file1.json").toAbsolutePath().normalize();
-        //Path filePath2 = Paths.get("src/test/resources/file2.json").toAbsolutePath().normalize();
-
         var filePath1 = filepath1.toAbsolutePath().normalize();
         var filePath2 = filepath2.toAbsolutePath().normalize();
 
