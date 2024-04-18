@@ -5,16 +5,18 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
+import java.util.concurrent.Callable;
+import java.util.Map;
 import java.math.BigInteger;
 import java.security.MessageDigest;
-import java.util.concurrent.Callable;
 
-import java.util.Map;
-import java.util.HashMap;
 
 @CommandLine.Command(
         name = "gendiff",
@@ -39,30 +41,27 @@ public class App implements Callable<Integer> {
         //byte[] digest = MessageDigest.getInstance(format).digest(fileContents);
         //System.out.printf("%0" + (digest.length*2) + "x%n", new BigInteger(1, digest));
 
-        Path filePath1 = Paths.get("/Users/new/Desktop/file1.json").toAbsolutePath().normalize();
-        Path filePath2 = Paths.get("/Users/new/Desktop/file2.json").toAbsolutePath().normalize();
+        //Path filePath1 = Paths.get("src/test/resources/file1.json").toAbsolutePath().normalize();
+        //Path filePath2 = Paths.get("src/test/resources/file2.json").toAbsolutePath().normalize();
 
-        String content1 = Files.readString(filePath1);
-        String content2 = Files.readString(filePath2);
+        var filePath1 = Paths.get(filepath1).toAbsolutePath().normalize();
+        var filePath2 = Paths.get(filepath2).toAbsolutePath().normalize();
 
-        System.out.println(getData(content1));
-        System.out.println(getData(content2));
-        //System.out.println(content2);
+        var contentOfFile1 = Files.readString(filePath1);
+        var contentOfFile2 = Files.readString(filePath2);
+
+        var parseContent1 = parseJson(contentOfFile1);
+        var parseContent2 = parseJson(contentOfFile2);
+
+        var comparisonResult = Differ.generate(parseContent1, parseContent2);
+        System.out.println(comparisonResult);
+
         return 0;
     }
 
-    public static Map getData(String content) throws Exception {
-        var cutСontent  = content.replace("{", "")
-                .replace("}", "");
-
-        String[] data = cutСontent.split(",");
-        Map<String, String> dataMap = new HashMap<>();
-
-        for (var dataKeyValue : data) {
-            String[] keyValue = dataKeyValue.split(":");
-            dataMap.put(keyValue[0], keyValue[1]);
-        }
-        return dataMap;
+    public static Map parseJson(String content) throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(content, Map.class);
     }
 
     public static void main(String[] args) {
