@@ -8,28 +8,7 @@ public class Differ {
 
        Map result = new HashMap<>(data1);
 
-       //var keysOfData1 = data1.keySet();
-       //var result = new StringBuilder();
 
-       var keys = data2.keySet();
-       for (var key : keys) {
-           result.compute(key, (key, count) -> {
-               count == null ? 1 : count + 1);
-
-               }
-           }
-
-       }
-
-
-
-
-
-
-
-
-       return str;
-
-
+       return "A";
     }
 }
