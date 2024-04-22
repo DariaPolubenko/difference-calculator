@@ -41,13 +41,7 @@ public class App implements Callable<Integer> {
 
         var data1 = getData(filepath1);
         var data2 = getData(filepath2);
-
-        System.out.println(data1);
-        System.out.println(data2);
-
-
-        Map comparisonResult = Differ.generate(data1, data2);
-
+        var comparisonResult = Differ.generate(data1, data2);
         System.out.println(comparisonResult);
 
         return 0;
@@ -60,8 +54,6 @@ public class App implements Callable<Integer> {
             throw new Exception("File '" + fullPath + "' does not exist");
         }
         var content = Files.readString(fullPath);
-
-        System.out.println("строка " + content);
         return Parser.parseJson(content);
     }
 
