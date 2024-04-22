@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
@@ -8,43 +9,34 @@ import java.util.stream.Collectors;
 
 
 public class Differ {
-    public static Map generate(Map data1, Map data2) {
+    public static String generate(Map data1, Map data2) {
 
-        //Map result = new HashMap<>();
-        var result = new StringBuilder();
-
-        // знаю, что цикл в цикле - решение merda, и решение выглядит супер сложно,
-        // но пока не понимаю, как решить оптимальнее, не в лоб
-        // возможно, тут могут сработать функции/стримы, но х(
-
-        for (var key1 : data1.keySet()) {
-
-            for (var key2 : data2.keySet()) {
-
-                if (key1.equals(key2)) {
-                    var value1 = data1.get(key1);
-                    var value2 = data2.get(key2);
-
-                    if (value1.equals(value2)) {
-                        result.append("<li>");
-                        result.put("  " + key1, value1);
-                    } else {
-                        result.put("- " + key1, value1);
-                        result.put("+ " + key1, value2);
-                    }
-                } else if (!data2.containsKey(key1)) {
-                    result.put("- " + key1, data1.get(key1));
-                } else if (!data1.containsKey(key2)) {
-                    result.put("+ " + key2, data1.get(key2));
-                }
+        var firstSorted = new TreeMap<>(data1);
+        var unitedMap = new TreeMap<>(data2);
+        firstSorted.forEach((key, value) -> {
+            if (!unitedMap.containsKey(key)) {
+                unitedMap.put(key, value);
             }
-        }
-        var sortedMap = new TreeMap<>(result);
+        });
 
-        //var sortedResult = result.entrySet().stream()
-                //.sorted()
-
-        return sortedMap;
+        var result = new StringBuilder();
+        result.append("{\n");
+        unitedMap.forEach((key, value) -> {
+            if (data1.containsKey(key) && data2.containsKey(key)) {
+                if (data1.get(key).equals(data2.get(key))) {
+                    result.append("   " + key + ": " + value + "\n");
+                } else {
+                    result.append(" - " + key + ": " + data1.get(key) + "\n");
+                    result.append(" + " + key + ": " + data2.get(key) + "\n");
+                }
+            } else if (!data1.containsKey(key)) {
+                result.append(" + " + key + ": " + data2.get(key) + "\n");
+            }else if (!data2.containsKey(key)) {
+                result.append(" - " + key + ": " + data1.get(key) + "\n");
+            }
+        });
+        result.append("}");
+        return result.toString();
     }
 }
 
