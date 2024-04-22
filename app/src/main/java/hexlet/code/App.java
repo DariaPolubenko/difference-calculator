@@ -48,7 +48,8 @@ public class App implements Callable<Integer> {
     }
 
     public static Map getData(Path filepath) throws Exception {
-        var fullPath = filepath.toAbsolutePath().normalize();
+        var path = "src/test/resources/" + filepath;
+        var fullPath = Paths.get(path).toAbsolutePath().normalize();
 
         if (!Files.exists(fullPath)) {
             throw new Exception("File '" + fullPath + "' does not exist");
