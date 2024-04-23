@@ -49,4 +49,61 @@ class AppTest {
                 "}";
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void Test3() throws Exception {
+
+        Path filepath1 = Paths.get("file31.json");
+        Path filepath2 = Paths.get("file32.json");
+
+        var data1 = getData(filepath1);
+        var data2 = getData(filepath2);
+
+        var actual = Differ.generate(data1, data2);
+        var expected = "{\n" +
+                "  + Возраст: 25\n" +
+                "  + Город: Сочи\n" +
+                "  + Имя: Иван\n" +
+                "  + Фамилия: Ужиков\n" +
+                "}";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void Test4() throws Exception {
+
+        Path filepath1 = Paths.get("file3.json"); //пустой
+        Path filepath2 = Paths.get("file21.json");
+
+        var data1 = getData(filepath1);
+        var data2 = getData(filepath2);
+
+        var actual = Differ.generate(data1, data2);
+        var expected = "{\n" +
+                "  + Возраст: 25\n" +
+                "  + Город: Сочи\n" +
+                "  + Имя: Иван\n" +
+                "  + Фамилия: Ужиков\n" +
+                "}";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void Test5() throws Exception {
+
+        Path filepath1 = Paths.get("file21.json");
+        Path filepath2 = Paths.get("file3.json"); //пустой
+
+        var data1 = getData(filepath1);
+        var data2 = getData(filepath2);
+
+        var actual = Differ.generate(data1, data2);
+        var expected = "{\n" +
+                "  - Возраст: 25\n" +
+                "  - Город: Сочи\n" +
+                "  - Имя: Иван\n" +
+                "  - Фамилия: Ужиков\n" +
+                "}";
+        assertEquals(expected, actual);
+    }
 }
