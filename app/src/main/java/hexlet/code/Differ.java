@@ -20,15 +20,15 @@ public class Differ {
         unitedData.forEach((key, value) -> {
             if (data1.containsKey(key) && data2.containsKey(key)) {
                 if (data1.get(key).equals(data2.get(key))) {
-                    result.append("   " + key + ": " + value + "\n");
+                    result.append("    " + key + ": " + value + "\n");
                 } else {
-                    result.append(" - " + key + ": " + data1.get(key) + "\n");
-                    result.append(" + " + key + ": " + data2.get(key) + "\n");
+                    result.append("  - " + key + ": " + data1.get(key) + "\n");
+                    result.append("  + " + key + ": " + data2.get(key) + "\n");
                 }
             } else if (!data1.containsKey(key)) {
-                result.append(" + " + key + ": " + data2.get(key) + "\n");
+                result.append("  + " + key + ": " + data2.get(key) + "\n");
             } else if (!data2.containsKey(key)) {
-                result.append(" - " + key + ": " + data1.get(key) + "\n");
+                result.append("  - " + key + ": " + data1.get(key) + "\n");
             }
         });
         result.append("}");
