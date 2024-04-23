@@ -1,22 +1,22 @@
 package hexlet.code;
 
 import picocli.CommandLine;
-import picocli.CommandLine.Command;
+//import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+//import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.File;
+//import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import java.sql.SQLOutput;
+//import java.sql.SQLOutput;
 import java.util.concurrent.Callable;
 import java.util.Map;
-import java.math.BigInteger;
-import java.security.MessageDigest;
+//import java.math.BigInteger;
+//import java.security.MessageDigest;
 
 
 @CommandLine.Command(
