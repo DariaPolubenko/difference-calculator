@@ -17,8 +17,11 @@ public class Differ {
 
         var result = new StringBuilder();
         result.append("{\n");
+
         unitedData.forEach((key, value) -> {
-            if (data1.containsKey(key) && data2.containsKey(key)) {
+            if (key.equals("")) {
+                result.append("");
+            } else if (data1.containsKey(key) && data2.containsKey(key)) {
                 if (data1.get(key).equals(data2.get(key))) {
                     result.append("    " + key + ": " + value + "\n");
                 } else {
