@@ -5,6 +5,7 @@ lint:
 	./gradlew checkstyleMain
 
 build:
+	cd ..
 	./gradlew clean build
 
 .PHONY: build
