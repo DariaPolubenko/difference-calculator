@@ -1,2 +1,13 @@
 name: Github Actions
 
+on:
+  - push
+  - pull_request
+
+jobs: 
+  build: 
+    runs-on: 
+    
+    steps: 
+      - uses: actions/checkout@v4 
+      - run: make build
