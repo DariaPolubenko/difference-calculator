@@ -4,10 +4,10 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Differ {
-    public static String generate(Map data1, Map data2) {
+    public static String generate(Map<String, Object> data1, Map<String, Object> data2) {
 
-        var sortedData1 = new TreeMap<>(data1);
-        var unitedData = new TreeMap<>(data2);
+        var sortedData1 = new TreeMap<String, Object>(data1);
+        var unitedData = new TreeMap<String, Object>(data2);
 
         sortedData1.forEach((key, value) -> {
             if (!unitedData.containsKey(key)) {
