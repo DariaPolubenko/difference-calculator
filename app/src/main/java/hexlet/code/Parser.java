@@ -4,7 +4,7 @@ import java.util.Map;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Parser {
-    public static Map parseJson(String content) throws Exception {
+    public static Map<String, Object> parseJson(String content) throws Exception {
         if (content.isEmpty()) {
             return Map.of("", "");
         }
