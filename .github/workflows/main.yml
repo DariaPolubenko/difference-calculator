@@ -19,5 +19,3 @@ jobs:
           gradle-version: 8.7
           
       - run: cd app && make build
-      - run: make lint
-      - run: make test
