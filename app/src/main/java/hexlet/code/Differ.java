@@ -38,4 +38,3 @@ public class Differ {
         return result.toString();
     }
 }
-
