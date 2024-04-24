@@ -43,7 +43,7 @@ public class App implements Callable<Integer> {
         return 0;
     }
 
-    public static Map getData(String filepath) throws Exception {
+    public static Map<String, Object> getData(String filepath) throws Exception {
         var fullPath = Paths.get(filepath).toAbsolutePath().normalize();
 
         if (!Files.exists(fullPath)) {
