@@ -34,18 +34,17 @@ public class App implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
+        var data1 = getData("src/test/resources/" + filepath1);
+        var data2 = getData("src/test/resources/" + filepath2);
 
-        var data1 = getData(filepath1);
-        var data2 = getData(filepath2);
         var comparisonResult = Differ.generate(data1, data2);
         System.out.println(comparisonResult);
 
         return 0;
     }
 
-    public static Map getData(Path filepath) throws Exception {
-        var path = "src/test/resources/" + filepath;
-        var fullPath = Paths.get(path).toAbsolutePath().normalize();
+    public static Map getData(String filepath) throws Exception {
+        var fullPath = Paths.get(filepath).toAbsolutePath().normalize();
 
         if (!Files.exists(fullPath)) {
             throw new Exception("File '" + fullPath + "' does not exist");
