@@ -14,8 +14,8 @@ class AppTest {
         Path filepath1 = Paths.get("file1.json");
         Path filepath2 = Paths.get("file2.json");
 
-        var data1 = getData(filepath1);
-        var data2 = getData(filepath2);
+        var data1 = getData("src/test/resources/" + filepath1);
+        var data2 = getData("src/test/resources/" + filepath2);
 
         var actual = Differ.generate(data1, data2);
         var expected = "{\n"
@@ -35,8 +35,8 @@ class AppTest {
         Path filepath1 = Paths.get("file21.json");
         Path filepath2 = Paths.get("file22.json");
 
-        var data1 = getData(filepath1);
-        var data2 = getData(filepath2);
+        var data1 = getData("src/test/resources/" + filepath1);
+        var data2 = getData("src/test/resources/" + filepath2);
 
         var actual = Differ.generate(data1, data2);
         var expected = "{\n"
@@ -56,8 +56,8 @@ class AppTest {
         Path filepath1 = Paths.get("file3.json");
         Path filepath2 = Paths.get("file21.json");
 
-        var data1 = getData(filepath1);
-        var data2 = getData(filepath2);
+        var data1 = getData("src/test/resources/" + filepath1);
+        var data2 = getData("src/test/resources/" + filepath2);
 
         var actual = Differ.generate(data1, data2);
         var expected = "{\n"
@@ -75,8 +75,8 @@ class AppTest {
         Path filepath1 = Paths.get("file3.json"); //пустой
         Path filepath2 = Paths.get("file21.json");
 
-        var data1 = getData(filepath1);
-        var data2 = getData(filepath2);
+        var data1 = getData("src/test/resources/" + filepath1);
+        var data2 = getData("src/test/resources/" + filepath2);
 
         var actual = Differ.generate(data1, data2);
         var expected = "{\n"
@@ -94,8 +94,8 @@ class AppTest {
         Path filepath1 = Paths.get("file21.json");
         Path filepath2 = Paths.get("file3.json"); //пустой
 
-        var data1 = getData(filepath1);
-        var data2 = getData(filepath2);
+        var data1 = getData("src/test/resources/" + filepath1);
+        var data2 = getData("src/test/resources/" + filepath2);
 
         var actual = Differ.generate(data1, data2);
         var expected = "{\n"
