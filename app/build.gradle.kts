@@ -2,6 +2,7 @@ plugins {
     id("java")
     checkstyle
     application
+    jacoco
 }
 
 application {
