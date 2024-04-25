@@ -49,8 +49,15 @@ public class App implements Callable<Integer> {
         if (!Files.exists(fullPath)) {
             throw new Exception("File '" + fullPath + "' does not exist");
         }
-        var content = Files.readString(fullPath);
-        return Parser.parseJson(content);
+
+        String[] format = filepath.split("\\.");
+        if (format[1].equals("json")) {
+            var content = Files.readString(fullPath);
+            return Parser.parseJson(content);
+        } else {
+            var content = Files.readString(fullPath);
+            return Parser.parseYaml(content);
+        }
     }
 
     public static void main(String[] args) {
