@@ -5,7 +5,6 @@ import java.util.TreeMap;
 
 public class Differ {
     public static String generate(Map<String, Object> data1, Map<String, Object> data2) {
-
         var sortedData1 = new TreeMap<String, Object>(data1);
         var unitedData = new TreeMap<String, Object>(data2);
 
@@ -14,7 +13,6 @@ public class Differ {
                 unitedData.put(key, value);
             }
         });
-
         var result = new StringBuilder();
         result.append("{\n");
 
