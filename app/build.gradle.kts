@@ -9,6 +9,12 @@ application {
     mainClass = "hexlet.code.App"
 }
 
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
+}
+
 group = "hexlet.code"
 version = "1.0-SNAPSHOT"
 
