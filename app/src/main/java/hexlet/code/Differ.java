@@ -9,9 +9,7 @@ public class Differ {
         var unitedData = new TreeMap<>(data2);
 
         sortedData1.forEach((key, value) -> {
-            if (!unitedData.containsKey(key)) {
-                unitedData.put(key, value);
-            }
+            unitedData.computeIfAbsent(key, (v) -> value);
         });
         var result = new StringBuilder();
         result.append("{\n");
