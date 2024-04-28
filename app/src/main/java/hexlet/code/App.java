@@ -51,7 +51,6 @@ public class App implements Callable<Integer> {
         }
 
         String[] format = filepath.split("\\.");
-
         if (format[1].equals("json")) {
             var content = Files.readString(fullPath);
             return Parser.parseJson(content);
