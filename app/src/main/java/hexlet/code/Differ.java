@@ -18,7 +18,7 @@ public class Differ {
             if (key.equals("")) {
                 result.append("");
             } else if (data1.containsKey(key) && data2.containsKey(key)) {
-                if (data1.get(key).equals(data2.get(key))) {
+                if (data1.get(key).toString().equals(data2.get(key).toString())) {
                     result.append("    " + key + ": " + value + "\n");
                 } else {
                     result.append("  - " + key + ": " + data1.get(key) + "\n");
