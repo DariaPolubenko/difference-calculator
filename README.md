@@ -5,6 +5,9 @@
 [![Action Test](https://github.com/DariaPolubenko/java-project-71/actions/workflows/main.yml/badge.svg)](https://github.com/DariaPolubenko/java-project-71/actions)
 
 
-## Project demo:
+## Demo of project work with json files:
+[![asciicast](https://asciinema.org/a/655854.svg)](https://asciinema.org/a/655854)
+
+## Demo of project work with yml files:
 [![asciicast](https://asciinema.org/a/655854.svg)](https://asciinema.org/a/655854)
 
