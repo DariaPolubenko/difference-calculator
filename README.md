@@ -9,5 +9,5 @@
 [![asciicast](https://asciinema.org/a/655854.svg)](https://asciinema.org/a/655854)
 
 ## Demo of project work with yml files:
-[![asciicast](https://asciinema.org/a/655854.svg)](https://asciinema.org/a/655854)
+[![asciicast](https://asciinema.org/a/656766.svg)](https://asciinema.org/a/656766)
 
