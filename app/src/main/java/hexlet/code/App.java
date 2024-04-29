@@ -37,8 +37,11 @@ public class App implements Callable<Integer> {
         var data1 = getData("src/test/resources/" + filepath1);
         var data2 = getData("src/test/resources/" + filepath2);
 
-        var comparisonResult = Differ.generate(data1, data2);
-        System.out.println(comparisonResult);
+        var comparisonData = Differ.generate(data1, data2);
+
+        //var result = Format.stylish(comparisonData);
+
+        System.out.println(comparisonData);
 
         return 0;
     }
