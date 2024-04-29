@@ -1,7 +1,6 @@
 package hexlet.code;
 
-public class Format {
+public class Formatter {
     public static /вывод/ stylish() {
 
     }
-}
