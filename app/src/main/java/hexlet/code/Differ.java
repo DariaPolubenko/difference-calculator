@@ -16,14 +16,11 @@ public class Differ {
         result.append("{\n");
 
         unitedData.forEach((key, value) -> {
-            var value1 = data1.get(key); //метод, который переформатирует значение в строку
-            var value2 = data1.get(key);
-
             if (key.equals("")) {
                 result.append("");
             } else if (data1.containsKey(key) && data2.containsKey(key)) {
                 if (Objects.equals(data1.get(key), data2.get(key))) {
-                    result.append("    " + key + ": " + value + "\n");
+                    result.append("    " + key + ": " + data1.get(key) + "\n");
                 } else {
                     result.append("  - " + key + ": " + data1.get(key) + "\n");
                     result.append("  + " + key + ": " + data2.get(key) + "\n");
@@ -37,8 +34,4 @@ public class Differ {
         result.append("}");
         return result.toString();
     }
-
-   // @Override
-    //public String toString(Object value) {
-
 }
