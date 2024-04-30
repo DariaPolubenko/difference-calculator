@@ -7,7 +7,10 @@ import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.Objects;
 
+import static hexlet.code.Formatter.formatter;
+
 public class Differ {
+
     public static String generate(Map<String, Object> data1, Map<String, Object> data2) {
         return generate(data1, data2, "stylish");
     }
@@ -15,11 +18,7 @@ public class Differ {
     public static String generate(Map<String, Object> data1, Map<String, Object> data2, String format) {
         List<Map<String, Object>> differences = getDifference(data1, data2);
 
-        var result = "";
-        if (format.equals("stylish")) {
-            result = Formatter.stylish(differences);
-        }
-        return result;
+        return formatter(differences, format);
     }
 
     public static List<Map<String, Object>> getDifference(Map<String, Object> data1, Map<String, Object> data2) {
@@ -40,14 +39,14 @@ public class Differ {
             } else if (data1.containsKey(key) && data2.containsKey(key)) {
                 if (Objects.equals(value1, value2)) {
                     helperMap.put("key", key);
-                    helperMap.put("type", "unchanged");
+                    helperMap.put("type", "unupdated");
                     helperMap.put("old value", value1);
                     helperMap.put("new value", value1);
 
                     result.add(helperMap);
                 } else {
                     helperMap.put("key", key);
-                    helperMap.put("type", "changed");
+                    helperMap.put("type", "updated");
                     helperMap.put("old value", value1);
                     helperMap.put("new value", value2);
 
@@ -63,7 +62,7 @@ public class Differ {
 
             } else if (!data2.containsKey(key)) {
                 helperMap.put("key", key);
-                helperMap.put("type", "deleted");
+                helperMap.put("type", "removed");
                 helperMap.put("old value", value1);
                 helperMap.put("new value", "");
 
