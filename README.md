@@ -23,9 +23,12 @@ make run-dist /bla-bla-bla
 ```
 
 
-## Demo of project work with json files:
+## Demo of project with using -json files:
 [![asciicast](https://asciinema.org/a/655854.svg)](https://asciinema.org/a/655854)
 
-## Demo of project work with yml files:
+## Demo of project with using -yml files:
 [![asciicast](https://asciinema.org/a/656766.svg)](https://asciinema.org/a/656766)
+
+## Demo of project with using 'stylish' and 'plain' formats
+[![asciicast](https://asciinema.org/a/657005.svg)](https://asciinema.org/a/657005)
 
