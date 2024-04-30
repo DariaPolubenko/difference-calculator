@@ -171,4 +171,52 @@ class AppTest {
                 + "}";
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void test9() throws Exception {
+
+        var data1 = App.getData("src/test/resources/file31.json");
+        var data2 = App.getData("src/test/resources/file32.json");
+        var format = "plain";
+
+        var actual = Differ.generate(data1, data2, format);
+        var expected = "Property 'chars2' was updated. From [complex value] to false\n"
+                     + "Property 'checked' was updated. From false to true\n"
+                     + "Property 'default' was updated. From null to [complex value]\n"
+                     + "Property 'id' was updated. From 45 to null\n"
+                     + "Property 'key1' was removed\n"
+                     + "Property 'key2' was added with value: 'value2'\n"
+                     + "Property 'numbers2' was updated. From [complex value] to [complex value]\n"
+                     + "Property 'numbers3' was removed\n"
+                     + "Property 'numbers4' was added with value: [complex value]\n"
+                     + "Property 'obj1' was added with value: [complex value]\n"
+                     + "Property 'setting1' was updated. From 'Some value' to 'Another value'\n"
+                     + "Property 'setting2' was updated. From 200 to 300\n"
+                     + "Property 'setting3' was updated. From true to 'none'\n";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test10() throws Exception {
+
+        var data1 = App.getData("src/test/resources/file31.yml");
+        var data2 = App.getData("src/test/resources/file32.yml");
+        var format = "plain";
+
+        var actual = Differ.generate(data1, data2, format);
+        var expected = "Property 'chars2' was updated. From [complex value] to false\n"
+                + "Property 'checked' was updated. From false to true\n"
+                + "Property 'default' was updated. From null to [complex value]\n"
+                + "Property 'id' was updated. From 45 to null\n"
+                + "Property 'key1' was removed\n"
+                + "Property 'key2' was added with value: 'value2'\n"
+                + "Property 'numbers2' was updated. From [complex value] to [complex value]\n"
+                + "Property 'numbers3' was removed\n"
+                + "Property 'numbers4' was added with value: [complex value]\n"
+                + "Property 'obj1' was added with value: [complex value]\n"
+                + "Property 'setting1' was updated. From 'Some value' to 'Another value'\n"
+                + "Property 'setting2' was updated. From 200 to 300\n"
+                + "Property 'setting3' was updated. From true to 'none'\n";
+        assertEquals(expected, actual);
+    }
 }
