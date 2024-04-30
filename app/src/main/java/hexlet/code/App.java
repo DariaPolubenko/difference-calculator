@@ -21,9 +21,12 @@ import java.util.Map;
         version = "gendiff 1.0",
         description = "Compares two configuration files and shows a difference.")
 
-
 public class App implements Callable<Integer> {
-    @Option(names = {"-f", "--format"}, description = "output format [default: stylish]", defaultValue = "stylish", paramLabel = "format")
+    @Option(names = {"-f", "--format"},
+            description = "output format [default: stylish]",
+            defaultValue = "stylish",
+            paramLabel = "format")
+
     private String format = "stylish";
 
     @Parameters(index = "0", description = "path to first file", paramLabel = "filepath1")
@@ -32,14 +35,13 @@ public class App implements Callable<Integer> {
     @Parameters(index = "1", description = "path to second file", paramLabel = "filepath2")
     private Path filepath2;
 
-
     @Override
     public Integer call() throws Exception {
         var data1 = getData("src/test/resources/" + filepath1);
         var data2 = getData("src/test/resources/" + filepath2);
 
-        var comparisonData = Differ.generate(data1, data2, format);
-        System.out.println(comparisonData);
+        var diff = Differ.generate(data1, data2, format);
+        System.out.println(diff);
 
         return 0;
     }
