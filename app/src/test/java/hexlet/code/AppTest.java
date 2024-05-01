@@ -299,7 +299,7 @@ class AppTest {
                 + "  \"value2\" : \"none\",\n"
                 + "  \"value1\" : true,\n"
                 + "  \"type\" : \"updated\",\n"
-                + "  \"key\" : \"setting3\""
+                + "  \"key\" : \"setting3\"\n"
                 + "} ]";
         assertEquals(expected, actual);
     }
