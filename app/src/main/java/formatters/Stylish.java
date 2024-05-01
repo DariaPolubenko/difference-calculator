@@ -10,18 +10,18 @@ public class Stylish {
         result.append("{\n");
 
         for (var map : data) {
-            var oldValue = map.get("old value");
-            var newValue = map.get("new value");
+            var value1 = map.get("value1");
+            var value2 = map.get("value2");
 
             if (Objects.equals(map.get("type"), "unupdated")) {
-                result.append("    " + map.get("key") + ": " + oldValue + "\n");
+                result.append("    " + map.get("key") + ": " + value1 + "\n");
             } else if (Objects.equals(map.get("type"), "updated")) {
-                result.append("  - " + map.get("key") + ": " + oldValue + "\n");
-                result.append("  + " + map.get("key") + ": " + newValue + "\n");
+                result.append("  - " + map.get("key") + ": " + value1 + "\n");
+                result.append("  + " + map.get("key") + ": " + value2 + "\n");
             } else if (Objects.equals(map.get("type"), "added")) {
-                result.append("  + " + map.get("key") + ": " + newValue + "\n");
+                result.append("  + " + map.get("key") + ": " + value2 + "\n");
             } else if (Objects.equals(map.get("type"), "removed")) {
-                result.append("  - " + map.get("key") + ": " + oldValue + "\n");
+                result.append("  - " + map.get("key") + ": " + value1 + "\n");
             }
         }
         result.append("}");
