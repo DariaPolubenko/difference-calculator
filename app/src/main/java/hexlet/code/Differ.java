@@ -11,11 +11,12 @@ import static hexlet.code.Formatter.formatter;
 
 public class Differ {
 
-    public static String generate(Map<String, Object> data1, Map<String, Object> data2) {
+    public static String generate(Map<String, Object> data1, Map<String, Object> data2) throws Exception {
         return generate(data1, data2, "stylish");
     }
 
-    public static String generate(Map<String, Object> data1, Map<String, Object> data2, String format) {
+    public static String generate(Map<String, Object> data1, Map<String, Object> data2,
+                                  String format) throws Exception {
         List<Map<String, Object>> differences = getDifference(data1, data2);
 
         return formatter(differences, format);
@@ -40,31 +41,31 @@ public class Differ {
                 if (Objects.equals(value1, value2)) {
                     helperMap.put("key", key);
                     helperMap.put("type", "unupdated");
-                    helperMap.put("old value", value1);
-                    helperMap.put("new value", value1);
+                    helperMap.put("value1", value1);
+                    helperMap.put("value2", value1);
 
                     result.add(helperMap);
                 } else {
                     helperMap.put("key", key);
                     helperMap.put("type", "updated");
-                    helperMap.put("old value", value1);
-                    helperMap.put("new value", value2);
+                    helperMap.put("value1", value1);
+                    helperMap.put("value2", value2);
 
                     result.add(helperMap);
                 }
             } else if (!data1.containsKey(key)) {
                 helperMap.put("key", key);
                 helperMap.put("type", "added");
-                helperMap.put("old value", "");
-                helperMap.put("new value", value2);
+                helperMap.put("value1", "");
+                helperMap.put("value2", value2);
 
                 result.add(helperMap);
 
             } else if (!data2.containsKey(key)) {
                 helperMap.put("key", key);
                 helperMap.put("type", "removed");
-                helperMap.put("old value", value1);
-                helperMap.put("new value", "");
+                helperMap.put("value1", value1);
+                helperMap.put("value2", "");
 
                 result.add(helperMap);
             }
