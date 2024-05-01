@@ -19,7 +19,6 @@ git clone git@github.com:DariaPolubenko/java-project-71.git
 In the console, type the command
 ```bash
 cd java-project-71/app
-make run-dist /bla-bla-bla
 ```
 
 
