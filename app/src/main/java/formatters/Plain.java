@@ -10,24 +10,24 @@ public class Plain {
         var result = new StringBuilder();
 
         for (var map : data) {
-            var oldValue = map.get("old value") instanceof ArrayList<?>
-                    || map.get("old value") instanceof Map<?, ?> ? "[complex value]"
-                    : map.get("old value") instanceof String ? "'" + map.get("old value") + "'"
-                    : map.get("old value");
+            var value1 = map.get("value1") instanceof ArrayList<?>
+                    || map.get("value1") instanceof Map<?, ?> ? "[complex value]"
+                    : map.get("value1") instanceof String ? "'" + map.get("value1") + "'"
+                    : map.get("value1");
 
-            var newValue = map.get("new value") instanceof ArrayList<?>
-                    || map.get("new value") instanceof Map<?, ?> ? "[complex value]"
-                    : map.get("new value") instanceof String ? "'" + map.get("new value")  + "'"
-                    : map.get("new value");
+            var value2 = map.get("value2") instanceof ArrayList<?>
+                    || map.get("value2") instanceof Map<?, ?> ? "[complex value]"
+                    : map.get("value2") instanceof String ? "'" + map.get("value2")  + "'"
+                    : map.get("value2");
 
             if (Objects.equals(map.get("type"), "unupdated")) {
                 result.append("");
             } else if (Objects.equals(map.get("type"), "updated")) {
                 result.append("Property " + "'" + map.get("key") + "'"
-                        + " was updated. From " + oldValue + " to " + newValue + "\n");
+                        + " was updated. From " + value1 + " to " + value2 + "\n");
             } else if (Objects.equals(map.get("type"), "added")) {
                 result.append("Property " + "'" + map.get("key") + "'"
-                        + " was added with value: " + newValue + "\n");
+                        + " was added with value: " + value2 + "\n");
             } else if (Objects.equals(map.get("type"), "removed")) {
                 result.append("Property " + "'" + map.get("key") + "'" + " was removed" + "\n");
             }
