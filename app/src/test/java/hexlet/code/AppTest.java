@@ -219,4 +219,88 @@ class AppTest {
                 + "Property 'setting3' was updated. From true to 'none'\n";
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void test11() throws Exception {
+
+        var data1 = App.getData("src/test/resources/file31.json");
+        var data2 = App.getData("src/test/resources/file32.json");
+        var format = "json";
+
+        var actual = Differ.generate(data1, data2, format);
+        var expected = "[ "
+                + "{\n"
+                + "  \"type\" : \"unupdated\",\n"
+                + "  \"value\" : [ \"a\", \"b\", \"c\" ],\n"
+                + "  \"key\" : \"chars1\"\n"
+                + "}, {\n"
+                + "  \"value2\" : false,\n"
+                + "  \"value1\" : [ \"d\", \"e\", \"f\" ],\n"
+                + "  \"type\" : \"updated\",\n"
+                + "  \"key\" : \"chars2\"\n"
+                + "}, {\n"
+                + "  \"value2\" : true,\n"
+                + "  \"value1\" : false,\n"
+                + "  \"type\" : \"updated\",\n"
+                + "  \"key\" : \"checked\"\n"
+                + "}, {\n"
+                + "  \"value2\" : [ \"value1\", \"value2\" ],\n"
+                + "  \"value1\" : null,\n"
+                + "  \"type\" : \"updated\",\n"
+                + "  \"key\" : \"default\"\n"
+                + "}, {\n"
+                + "  \"value2\" : null,\n"
+                + "  \"value1\" : 45,\n"
+                + "  \"type\" : \"updated\",\n"
+                + "  \"key\" : \"id\"\n"
+                + "}, {\n"
+                + "  \"type\" : \"removed\",\n"
+                + "  \"value\" : \"value1\",\n"
+                + "  \"key\" : \"key1\"\n"
+                + "}, {\n"
+                + "  \"type\" : \"added\",\n"
+                + "  \"value\" : \"value2\",\n"
+                + "  \"key\" : \"key2\"\n"
+                + "}, {\n"
+                + "  \"type\" : \"unupdated\",\n"
+                + "  \"value\" : [ 1, 2, 3, 4 ],\n"
+                + "  \"key\" : \"numbers1\"\n"
+                + "}, {\n"
+                + "  \"value2\" : [ 22, 33, 44, 55 ],\n"
+                + "  \"value1\" : [ 2, 3, 4, 5 ],\n"
+                + "  \"type\" : \"updated\",\n"
+                + "  \"key\" : \"numbers2\"\n"
+                + "}, {\n"
+                + "  \"type\" : \"removed\",\n"
+                + "  \"value\" : [ 3, 4, 5 ],\n"
+                + "  \"key\" : \"numbers3\"\n"
+                + "}, {\n"
+                + "  \"type\" : \"added\",\n"
+                + "  \"value\" : [ 4, 5, 6 ],\n"
+                + "  \"key\" : \"numbers4\"\n"
+                + "}, {\n"
+                + "  \"type\" : \"added\",\n"
+                + "  \"value\" : {\n"
+                + "    \"nestedKey\" : \"value\",\n"
+                + "    \"isNested\" : true\n"
+                + "  },\n"
+                + "  \"key\" : \"obj1\"\n"
+                + "}, {\n"
+                + "  \"value2\" : \"Another value\",\n"
+                + "  \"value1\" : \"Some value\",\n"
+                + "  \"type\" : \"updated\",\n"
+                + "  \"key\" : \"setting1\"\n"
+                + "}, {\n"
+                + "  \"value2\" : 300,\n"
+                + "  \"value1\" : 200,\n"
+                + "  \"type\" : \"updated\",\n"
+                + "  \"key\" : \"setting2\"\n"
+                + "}, {\n"
+                + "  \"value2\" : \"none\",\n"
+                + "  \"value1\" : true,\n"
+                + "  \"type\" : \"updated\",\n"
+                + "  \"key\" : \"setting3\""
+                + "} ]";
+        assertEquals(expected, actual);
+    }
 }
