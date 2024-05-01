@@ -16,9 +16,22 @@ git clone git@github.com:DariaPolubenko/java-project-71.git
 ```
 
 ## Start
-In the console, type the command
+In the console, type commands
+
+### * for help output
 ```bash
 cd java-project-71/app
+./build/install/app/bin/app -h
+```
+### * compare 2 files with .json or .yml formates
+```bash
+cd java-project-71/app
+./build/install/app/bin/app file1.json file2.json
+```
+### * add "-f plain" or "-f json" for output the corresponding format
+```bash
+cd java-project-71/app
+./build/install/app/bin/app -f plain file1.json file2.json
 ```
 
 
