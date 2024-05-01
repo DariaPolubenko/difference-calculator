@@ -26,7 +26,7 @@ make run-dist /bla-bla-bla
 ## Demo of project with using _-json_ files:
 [![asciicast](https://asciinema.org/a/655854.svg)](https://asciinema.org/a/655854)
 
-## Demo of project with using _-yml _ files:
+## Demo of project with using _-yml_ files:
 [![asciicast](https://asciinema.org/a/656766.svg)](https://asciinema.org/a/656766)
 
 ## Demo of project with using _'stylish'_ and _'plain'_ formats
