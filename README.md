@@ -64,11 +64,11 @@ _Сравнение файлов с вложенной структурой_
 ./build/install/app/bin/app -f plain file1.json file2.json
 ```
 
-_Вывод результата в форматах 'stylish'_
+_Вывод результата в формате 'stylish'_
 
 [![asciicast](https://asciinema.org/a/657402.svg)](https://asciinema.org/a/657402)
 
-_Вывод результата в форматах 'plain'_
+_Вывод результата в формате 'plain'_
 
 [![asciicast](https://asciinema.org/a/657404.svg)](https://asciinema.org/a/657404)
 
