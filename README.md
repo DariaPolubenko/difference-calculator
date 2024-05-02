@@ -23,7 +23,7 @@ git clone git@github.com:DariaPolubenko/java-project-71.git
 cd java-project-71/app
 ```
 
-И введите следующую команду:
+Введите следующую команду:
 ```bash
 ./build/install/app/bin/app -h
 ```
