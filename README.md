@@ -31,7 +31,7 @@ cd java-project-71/app
 ```bash
 ./build/install/app/bin/app -h
 ```
-[![asciicast](https://asciinema.org/a/657385.svg)](https://asciinema.org/a/657385)
+[![asciicast](https://asciinema.org/a/657399.svg)](https://asciinema.org/a/657399)
 
 
 
