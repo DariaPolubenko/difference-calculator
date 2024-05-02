@@ -3,14 +3,11 @@ package hexlet.code;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 class AppTest {
     @Test
     public void test1() throws Exception {
-        Path filepath1 = Paths.get("file1.json");
-        Path filepath2 = Paths.get("file2.json");
+        var filepath1 = "file1.json";
+        var filepath2 = "file2.json";
 
         var actual = Differ.generate(filepath1, filepath2);
 
@@ -27,8 +24,8 @@ class AppTest {
 
     @Test
     public void test2() throws Exception {
-        Path filepath1 = Paths.get("file3.json");
-        Path filepath2 = Paths.get("file1.json");
+        var filepath1 = "file3.json";
+        var filepath2 = "file1.json";
 
         var actual = Differ.generate(filepath1, filepath2);
         var expected = "{\n"
@@ -42,8 +39,8 @@ class AppTest {
 
     @Test
     public void test3() throws Exception {
-        Path filepath1 = Paths.get("file1.json");
-        Path filepath2 = Paths.get("file3.json");
+        var filepath1 = "file1.json";
+        var filepath2 = "file3.json";
 
         var actual = Differ.generate(filepath1, filepath2);
         var expected = "{\n"
@@ -57,8 +54,8 @@ class AppTest {
 
     @Test
     public void test4() throws Exception {
-        Path filepath1 = Paths.get("file3.json");
-        Path filepath2 = Paths.get("file4.json");
+        var filepath1 = "file3.json";
+        var filepath2 = "file4.json";
 
         var actual = Differ.generate(filepath1, filepath2);
         var expected = "{\n"
@@ -68,8 +65,8 @@ class AppTest {
 
     @Test
     public void test5() throws Exception {
-        Path filepath1 = Paths.get("file1.yml");
-        Path filepath2 = Paths.get("file2.yml");
+        var filepath1 = "file1.yml";
+        var filepath2 = "file2.yml";
 
         var actual = Differ.generate(filepath1, filepath2);
         var expected = "{\n"
@@ -85,8 +82,8 @@ class AppTest {
 
     @Test
     public void test6() throws Exception {
-        Path filepath1 = Paths.get("file31.json");
-        Path filepath2 = Paths.get("file32.json");
+        var filepath1 = "file31.json";
+        var filepath2 = "file32.json";
 
         var actual = Differ.generate(filepath1, filepath2);
         var expected = "{\n"
@@ -119,8 +116,8 @@ class AppTest {
 
     @Test
     public void test7() throws Exception {
-        Path filepath1 = Paths.get("file31.yml");
-        Path filepath2 = Paths.get("file32.yml");
+        var filepath1 = "file31.yml";
+        var filepath2 = "file32.yml";
 
         var actual = Differ.generate(filepath1, filepath2);
         var expected = "{\n"
@@ -153,8 +150,8 @@ class AppTest {
 
     @Test
     public void test8() throws Exception {
-        Path filepath1 = Paths.get("file31.json");
-        Path filepath2 = Paths.get("file32.json");
+        var filepath1 = "file31.json";
+        var filepath2 = "file32.json";
 
         var actual = Differ.generate(filepath1, filepath2, "plain");
         var expected = "Property 'chars2' was updated. From [complex value] to false\n"
@@ -175,8 +172,8 @@ class AppTest {
 
     @Test
     public void test9() throws Exception {
-        Path filepath1 = Paths.get("file31.yml");
-        Path filepath2 = Paths.get("file32.yml");
+        var filepath1 = "file31.yml";
+        var filepath2 = "file32.yml";
 
         var actual = Differ.generate(filepath1, filepath2, "plain");
         var expected = "Property 'chars2' was updated. From [complex value] to false\n"
@@ -197,8 +194,8 @@ class AppTest {
 
     @Test
     public void test10() throws Exception {
-        Path filepath1 = Paths.get("file31.json");
-        Path filepath2 = Paths.get("file32.json");
+        var filepath1 = "file31.json";
+        var filepath2 = "file32.json";
 
         var actual = Differ.generate(filepath1, filepath2, "json");
         var expected = "[ "
