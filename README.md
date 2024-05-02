@@ -37,12 +37,12 @@ cd java-project-71/app
 ./build/install/app/bin/app file1.json file2.json
 ```
 
-**Сравнение файлов в формате .json**
+_Сравнение файлов в формате .json_
 
 [![asciicast](https://asciinema.org/a/657394.svg)](https://asciinema.org/a/657394)
 
 
-**Сравнение файлов в формате .yml**
+_Сравнение файлов в формате .yml_
 
 [![asciicast](https://asciinema.org/a/656766.svg)](https://asciinema.org/a/656766)
 
@@ -54,11 +54,11 @@ cd java-project-71/app
 ./build/install/app/bin/app -f plain file1.json file2.json
 ```
 
-**Вывод результата в форматах _stylish_ и _plain_** 
+_Вывод результата в форматах 'stylish' и 'plain'_
 
 [![asciicast](https://asciinema.org/a/657005.svg)](https://asciinema.org/a/657005)
 
-**Вывод результата в формате _json_** 
+_Вывод результата в формате 'json'_
 
 [![asciicast](https://asciinema.org/a/657254.svg)](https://asciinema.org/a/657254)
 
