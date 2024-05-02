@@ -30,12 +30,20 @@ cd java-project-71/app
 [![asciicast](https://asciinema.org/a/657385.svg)](https://asciinema.org/a/657385)
 
 
-
-- compare 2 files with .json or .yml formates
+### Для сравнения двух файлов
+Введите команду './build/install/app/bin/app' и укажите файлы, которые необходимо сравнить
 ```bash
-cd java-project-71/app
 ./build/install/app/bin/app file1.json file2.json
 ```
+
+**Сравнение файлов в формате .json**
+
+[![asciicast](https://asciinema.org/a/655854.svg)](https://asciinema.org/a/655854)
+
+
+**Сравнение файлов в формате .yml**
+
+[![asciicast](https://asciinema.org/a/656766.svg)](https://asciinema.org/a/656766)
 
 
 - for output the corresponding format add "-f plain" or "-f json" 
@@ -45,11 +53,7 @@ cd java-project-71/app
 ```
 
 
-## Demo of project with using _.json_ files:
-[![asciicast](https://asciinema.org/a/655854.svg)](https://asciinema.org/a/655854)
 
-## Demo of project with using _.yml_ files:
-[![asciicast](https://asciinema.org/a/656766.svg)](https://asciinema.org/a/656766)
 
 ## Demo of project with using _'stylish'_ and _'plain'_ formats
 [![asciicast](https://asciinema.org/a/657005.svg)](https://asciinema.org/a/657005)
