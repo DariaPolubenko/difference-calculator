@@ -16,7 +16,7 @@ git clone git@github.com:DariaPolubenko/java-project-71.git
 
 ## Использование
 
-### Вывод справочной информации
+### Для вывода справочной информации
 Введите в консоли следующие команды:
 ```bash
 cd java-project-71/app
