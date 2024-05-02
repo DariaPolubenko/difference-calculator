@@ -17,9 +17,13 @@ git clone git@github.com:DariaPolubenko/java-project-71.git
 ## Использование
 
 ### Для вывода справочной информации
-Введите в консоли следующие команды:
+Перейдите в поддиректорию проекта:
 ```bash
 cd java-project-71/app
+```
+
+И введите в консоль следующую команду:
+```bash
 ./build/install/app/bin/app -h
 ```
 [![asciicast](https://asciinema.org/a/657384.svg)](https://asciinema.org/a/657384)
