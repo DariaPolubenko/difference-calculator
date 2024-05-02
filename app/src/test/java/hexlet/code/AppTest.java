@@ -3,14 +3,17 @@ package hexlet.code;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 class AppTest {
     @Test
     public void test1() throws Exception {
+        Path filepath1 = Paths.get("file1.json");
+        Path filepath2 = Paths.get("file2.json");
 
-        var data1 = App.getData("src/test/resources/file1.json");
-        var data2 = App.getData("src/test/resources/file2.json");
+        var actual = Differ.generate(filepath1, filepath2);
 
-        var actual = Differ.generate(data1, data2);
         var expected = "{\n"
                        + "  - follow: false\n"
                        + "    host: hexlet.io\n"
@@ -24,11 +27,10 @@ class AppTest {
 
     @Test
     public void test2() throws Exception {
+        Path filepath1 = Paths.get("file3.json");
+        Path filepath2 = Paths.get("file1.json");
 
-        var data1 = App.getData("src/test/resources/file3.json"); //пустой
-        var data2 = App.getData("src/test/resources/file1.json");
-
-        var actual = Differ.generate(data1, data2);
+        var actual = Differ.generate(filepath1, filepath2);
         var expected = "{\n"
                 + "  + follow: false\n"
                 + "  + host: hexlet.io\n"
@@ -40,11 +42,10 @@ class AppTest {
 
     @Test
     public void test3() throws Exception {
+        Path filepath1 = Paths.get("file1.json");
+        Path filepath2 = Paths.get("file3.json");
 
-        var data1 = App.getData("src/test/resources/file1.json");
-        var data2 = App.getData("src/test/resources/file3.json"); //пустой
-
-        var actual = Differ.generate(data1, data2);
+        var actual = Differ.generate(filepath1, filepath2);
         var expected = "{\n"
                 + "  - follow: false\n"
                 + "  - host: hexlet.io\n"
@@ -56,11 +57,10 @@ class AppTest {
 
     @Test
     public void test4() throws Exception {
+        Path filepath1 = Paths.get("file3.json");
+        Path filepath2 = Paths.get("file4.json");
 
-        var data1 = App.getData("src/test/resources/file3.json"); //пустой
-        var data2 = App.getData("src/test/resources/file4.json"); //пустой
-
-        var actual = Differ.generate(data1, data2);
+        var actual = Differ.generate(filepath1, filepath2);
         var expected = "{\n"
                 + "}";
         assertEquals(expected, actual);
@@ -68,11 +68,10 @@ class AppTest {
 
     @Test
     public void test5() throws Exception {
+        Path filepath1 = Paths.get("file1.yml");
+        Path filepath2 = Paths.get("file2.yml");
 
-        var data1 = App.getData("src/test/resources/file1.yml");
-        var data2 = App.getData("src/test/resources/file2.yml");
-
-        var actual = Differ.generate(data1, data2);
+        var actual = Differ.generate(filepath1, filepath2);
         var expected = "{\n"
                 + "  - follow: false\n"
                 + "    host: hexlet.io\n"
@@ -86,11 +85,10 @@ class AppTest {
 
     @Test
     public void test6() throws Exception {
+        Path filepath1 = Paths.get("file31.json");
+        Path filepath2 = Paths.get("file32.json");
 
-        var data1 = App.getData("src/test/resources/file31.json");
-        var data2 = App.getData("src/test/resources/file32.json");
-
-        var actual = Differ.generate(data1, data2);
+        var actual = Differ.generate(filepath1, filepath2);
         var expected = "{\n"
                 + "    chars1: [a, b, c]\n"
                 + "  - chars2: [d, e, f]\n"
@@ -121,11 +119,10 @@ class AppTest {
 
     @Test
     public void test7() throws Exception {
+        Path filepath1 = Paths.get("file31.yml");
+        Path filepath2 = Paths.get("file32.yml");
 
-        var data1 = App.getData("src/test/resources/file31.yml");
-        var data2 = App.getData("src/test/resources/file32.yml");
-
-        var actual = Differ.generate(data1, data2);
+        var actual = Differ.generate(filepath1, filepath2);
         var expected = "{\n"
                 + "    chars1: [a, b, c]\n"
                 + "  - chars2: [d, e, f]\n"
@@ -156,12 +153,10 @@ class AppTest {
 
     @Test
     public void test8() throws Exception {
+        Path filepath1 = Paths.get("file31.json");
+        Path filepath2 = Paths.get("file32.json");
 
-        var data1 = App.getData("src/test/resources/file31.json");
-        var data2 = App.getData("src/test/resources/file32.json");
-        var format = "plain";
-
-        var actual = Differ.generate(data1, data2, format);
+        var actual = Differ.generate(filepath1, filepath2, "plain");
         var expected = "Property 'chars2' was updated. From [complex value] to false\n"
                      + "Property 'checked' was updated. From false to true\n"
                      + "Property 'default' was updated. From null to [complex value]\n"
@@ -180,12 +175,10 @@ class AppTest {
 
     @Test
     public void test9() throws Exception {
+        Path filepath1 = Paths.get("file31.yml");
+        Path filepath2 = Paths.get("file32.yml");
 
-        var data1 = App.getData("src/test/resources/file31.yml");
-        var data2 = App.getData("src/test/resources/file32.yml");
-        var format = "plain";
-
-        var actual = Differ.generate(data1, data2, format);
+        var actual = Differ.generate(filepath1, filepath2, "plain");
         var expected = "Property 'chars2' was updated. From [complex value] to false\n"
                 + "Property 'checked' was updated. From false to true\n"
                 + "Property 'default' was updated. From null to [complex value]\n"
@@ -204,12 +197,10 @@ class AppTest {
 
     @Test
     public void test10() throws Exception {
+        Path filepath1 = Paths.get("file31.json");
+        Path filepath2 = Paths.get("file32.json");
 
-        var data1 = App.getData("src/test/resources/file31.json");
-        var data2 = App.getData("src/test/resources/file32.json");
-        var format = "json";
-
-        var actual = Differ.generate(data1, data2, format);
+        var actual = Differ.generate(filepath1, filepath2, "json");
         var expected = "[ "
                 + "{\n"
                 + "  \"type\" : \"unupdated\",\n"
