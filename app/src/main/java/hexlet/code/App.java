@@ -15,7 +15,7 @@ import java.util.concurrent.Callable;
         version = "gendiff 1.0",
         description = "Compares two configuration files and shows a difference.")
 
-public class App implements Callable<Integer> {
+public final class App implements Callable<Integer> {
     @Option(names = {"-f", "--format"},
             description = "output format [default: stylish]",
             defaultValue = "stylish",
