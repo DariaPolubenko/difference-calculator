@@ -68,6 +68,10 @@ _Вывод результата в форматах 'stylish'_
 
 [![asciicast](https://asciinema.org/a/657402.svg)](https://asciinema.org/a/657402)
 
+_Вывод результата в форматах 'plain'_
+
+[![asciicast](https://asciinema.org/a/657404.svg)](https://asciinema.org/a/657404)
+
 _Вывод результата в формате 'json'_
 
 [![asciicast](https://asciinema.org/a/657254.svg)](https://asciinema.org/a/657254)
