@@ -9,10 +9,11 @@
 
 
 ## Установка
-In the console, type the command
+В консоль введите команду:
 ```bash
 git clone git@github.com:DariaPolubenko/java-project-71.git
 ```
+
 
 ## Использование
 
@@ -22,11 +23,11 @@ git clone git@github.com:DariaPolubenko/java-project-71.git
 cd java-project-71/app
 ```
 
-И введите в консоль следующую команду:
+И введите следующую команду:
 ```bash
 ./build/install/app/bin/app -h
 ```
-[![asciicast](https://asciinema.org/a/657384.svg)](https://asciinema.org/a/657384)
+[![asciicast](https://asciinema.org/a/657385.svg)](https://asciinema.org/a/657385)
 
 
 
