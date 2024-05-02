@@ -59,7 +59,6 @@ _Сравнение файлов с вложенной структурой_
 
 ### Для вывода результата в форматах _stylish_, _plain_ или _json_
 Вывод автоматически выводится в формате _stylish_.
-
 Чтобы изменить формат на _plain_ или _json_  добавьте "-f plain" или "-f json" соответственно
 ```bash
 ./build/install/app/bin/app -f plain file1.json file2.json
