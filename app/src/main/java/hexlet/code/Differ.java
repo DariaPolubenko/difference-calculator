@@ -19,8 +19,11 @@ public class Differ {
 
     public static String generate(String filepath1,  String filepath2, String format) throws Exception {
 
-        var data1 = getData("src/test/resources/" + filepath1);
-        var data2 = getData("src/test/resources/" + filepath2);
+        filepath1 = filepath1.contains("/") ? filepath1 : "src/test/resources/" + filepath1;
+        filepath2 = filepath2.contains("/") ? filepath2 : "src/test/resources/" + filepath2;
+
+        var data1 = getData(filepath1);
+        var data2 = getData(filepath2);
 
         List<Map<String, Object>> differences = getDifference(data1, data2);
 
