@@ -6,11 +6,7 @@ import org.junit.jupiter.api.Test;
 class AppTest {
     @Test
     public void test1() throws Exception {
-        var filepath1 = "src/test/resources/file1.json";
-        var filepath2 = "file2.json";
-
-        var actual = Differ.generate(filepath1, filepath2);
-
+        var actual = Differ.generate("src/test/resources/file1.json", "file2.json");
         var expected = "{\n"
                        + "  - follow: false\n"
                        + "    host: hexlet.io\n"
@@ -24,10 +20,7 @@ class AppTest {
 
     @Test
     public void test2() throws Exception {
-        var filepath1 = "file3.json";
-        var filepath2 = "file1.json";
-
-        var actual = Differ.generate(filepath1, filepath2);
+        var actual = Differ.generate("file3.json", "file1.json");
         var expected = "{\n"
                 + "  + follow: false\n"
                 + "  + host: hexlet.io\n"
@@ -39,10 +32,7 @@ class AppTest {
 
     @Test
     public void test3() throws Exception {
-        var filepath1 = "file1.json";
-        var filepath2 = "file3.json";
-
-        var actual = Differ.generate(filepath1, filepath2);
+        var actual = Differ.generate("file1.json", "file3.json");
         var expected = "{\n"
                 + "  - follow: false\n"
                 + "  - host: hexlet.io\n"
@@ -54,10 +44,7 @@ class AppTest {
 
     @Test
     public void test4() throws Exception {
-        var filepath1 = "file3.json";
-        var filepath2 = "file4.json";
-
-        var actual = Differ.generate(filepath1, filepath2);
+        var actual = Differ.generate("file3.json", "file4.json");
         var expected = "{\n"
                 + "}";
         assertEquals(expected, actual);
@@ -65,10 +52,7 @@ class AppTest {
 
     @Test
     public void test5() throws Exception {
-        var filepath1 = "file1.yml";
-        var filepath2 = "file2.yml";
-
-        var actual = Differ.generate(filepath1, filepath2);
+        var actual = Differ.generate("file1.yml", "file2.yml");
         var expected = "{\n"
                 + "  - follow: false\n"
                 + "    host: hexlet.io\n"
@@ -82,10 +66,8 @@ class AppTest {
 
     @Test
     public void test6() throws Exception {
-        var filepath1 = "file31.json";
-        var filepath2 = "file32.json";
+        var actual = Differ.generate("file31.json", "file32.json");
 
-        var actual = Differ.generate(filepath1, filepath2);
         var expected = "{\n"
                 + "    chars1: [a, b, c]\n"
                 + "  - chars2: [d, e, f]\n"
@@ -116,10 +98,8 @@ class AppTest {
 
     @Test
     public void test7() throws Exception {
-        var filepath1 = "file31.yml";
-        var filepath2 = "file32.yml";
+        var actual = Differ.generate("file31.yml", "file32.yml");
 
-        var actual = Differ.generate(filepath1, filepath2);
         var expected = "{\n"
                 + "    chars1: [a, b, c]\n"
                 + "  - chars2: [d, e, f]\n"
@@ -150,10 +130,8 @@ class AppTest {
 
     @Test
     public void test8() throws Exception {
-        var filepath1 = "file31.json";
-        var filepath2 = "file32.json";
+        var actual = Differ.generate("file31.json", "file32.json", "plain");
 
-        var actual = Differ.generate(filepath1, filepath2, "plain");
         var expected = "Property 'chars2' was updated. From [complex value] to false\n"
                      + "Property 'checked' was updated. From false to true\n"
                      + "Property 'default' was updated. From null to [complex value]\n"
@@ -172,10 +150,8 @@ class AppTest {
 
     @Test
     public void test9() throws Exception {
-        var filepath1 = "file31.yml";
-        var filepath2 = "file32.yml";
+        var actual = Differ.generate("file31.yml", "file32.yml", "plain");
 
-        var actual = Differ.generate(filepath1, filepath2, "plain");
         var expected = "Property 'chars2' was updated. From [complex value] to false\n"
                 + "Property 'checked' was updated. From false to true\n"
                 + "Property 'default' was updated. From null to [complex value]\n"
@@ -194,10 +170,8 @@ class AppTest {
 
     @Test
     public void test10() throws Exception {
-        var filepath1 = "file31.json";
-        var filepath2 = "file32.json";
+        var actual = Differ.generate("file31.json", "file32.json", "json");
 
-        var actual = Differ.generate(filepath1, filepath2, "json");
         var expected = "[ "
                 + "{\n"
                 + "  \"type\" : \"unupdated\",\n"
