@@ -30,8 +30,9 @@ cd java-project-71/app
 [![asciicast](https://asciinema.org/a/657385.svg)](https://asciinema.org/a/657385)
 
 
+
 ### Для сравнения двух файлов
-Введите команду './build/install/app/bin/app' и укажите файлы, которые необходимо сравнить
+Введите команду _./build/install/app/bin/app_ и укажите файлы, которые необходимо сравнить
 ```bash
 ./build/install/app/bin/app file1.json file2.json
 ```
@@ -46,19 +47,19 @@ cd java-project-71/app
 [![asciicast](https://asciinema.org/a/656766.svg)](https://asciinema.org/a/656766)
 
 
-- for output the corresponding format add "-f plain" or "-f json" 
+
+### Для вывода результата в формате _plain_ или _json_
+Добавьте "-f plain" или "-f json" соответственно
 ```bash
-cd java-project-71/app
 ./build/install/app/bin/app -f plain file1.json file2.json
 ```
 
+**Вывод результата в форматах _stylish_ и _plain_** 
 
-
-
-## Demo of project with using _'stylish'_ and _'plain'_ formats
 [![asciicast](https://asciinema.org/a/657005.svg)](https://asciinema.org/a/657005)
 
-## Demo of project with using _'json'_ format
+**Вывод результата в формате _json_** 
+
 [![asciicast](https://asciinema.org/a/657254.svg)](https://asciinema.org/a/657254)
 
 
