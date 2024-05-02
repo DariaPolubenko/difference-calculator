@@ -1,7 +1,6 @@
 package hexlet.code;
 
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +13,11 @@ import static hexlet.code.Formatter.formatter;
 
 public class Differ {
 
-    public static String generate(Path filepath1,  Path filepath2) throws Exception {
+    public static String generate(String filepath1,  String filepath2) throws Exception {
         return generate(filepath1, filepath2, "stylish");
     }
 
-    public static String generate(Path filepath1,  Path filepath2, String format) throws Exception {
+    public static String generate(String filepath1,  String filepath2, String format) throws Exception {
 
         var data1 = getData("src/test/resources/" + filepath1);
         var data2 = getData("src/test/resources/" + filepath2);
