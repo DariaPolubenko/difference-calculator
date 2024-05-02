@@ -11,14 +11,15 @@ public class Json {
         result.append("[ ");
 
         for (var map : data) {
-            var value1 = getValue(map.get("value1"));
-            var value2 = getValue(map.get("value2"));
+            var value1 = getNewValue(map.get("value1"));
+            var value2 = getNewValue(map.get("value2"));
 
             if (Objects.equals(map.get("type"), "unupdated")) {
                 result.append("{\n  \"type\" : \"unupdated\",\n");
                 result.append("  \"value\" : " + value1 + ",\n");
                 result.append("  \"key\" : \"" + map.get("key") + "\"\n");
                 result.append("}, ");
+
             } else if (Objects.equals(map.get("type"), "updated")) {
                 result.append("{\n  \"value2\" : " + value2 + ",\n");
                 result.append("  \"value1\" : " + value1 + ",\n");
@@ -31,6 +32,7 @@ public class Json {
                 result.append("  \"value\" : " + value2 + ",\n");
                 result.append("  \"key\" : \"" + map.get("key") + "\"\n");
                 result.append("}, ");
+
             } else if (Objects.equals(map.get("type"), "removed")) {
                 result.append("{\n  \"type\" : \"removed\",\n");
                 result.append("  \"value\" : " + value1 + ",\n");
@@ -43,42 +45,37 @@ public class Json {
         return fullResult + " ]";
     }
 
-    public static Object getValue(Object value) {
-
+    public static Object getNewValue(Object value) {
         if (value instanceof ArrayList<?>) {
             var result = new StringBuilder();
             result.append("[ ");
 
-            ((ArrayList<?>) value).forEach((v) -> {
-                if (v instanceof String) {
-                    result.append("\"" + v + "\", ");
-                } else if (v instanceof Integer) {
-                    result.append(v + ", ");
+            ((ArrayList<?>) value).forEach((valueOfList) -> {
+                if (valueOfList instanceof String) {
+                    result.append("\"" + valueOfList + "\", ");
+                } else if (valueOfList instanceof Integer) {
+                    result.append(valueOfList + ", ");
                 }
             });
             var interimResult = result.toString();
             var fullResult = interimResult.substring(0, interimResult.length() - 2);
             return fullResult + " ]";
-        }
 
-        if (value instanceof String) {
+        } else if (value instanceof String) {
             return "\"" + value + "\"";
-        }
 
-        if (value instanceof Map<?, ?>) {
+        } else if (value instanceof Map<?, ?>) {
             var result = new StringBuilder();
             result.append("{\n");
 
-            var entries = ((Map<?, ?>) value).entrySet();
-            for (var entry : entries) {
-                result.append("    " + "\"" + entry.getKey() + "\"" + " : ");
-                value = entry.getValue();
-                if (value instanceof String) {
-                    result.append("\"" + value + "\",\n");
+            ((Map<?, ?>) value).forEach((key, valueOfMap) -> {
+                result.append("    " + "\"" + key + "\"" + " : ");
+                if (valueOfMap instanceof String) {
+                    result.append("\"" + valueOfMap + "\",\n");
                 } else {
-                    result.append(value + ",\n");
+                    result.append(valueOfMap + ",\n");
                 }
-            }
+            });
             var interimResult = result.toString();
             var fullResult = interimResult.substring(0, interimResult.length() - 2);
             return fullResult + "\n  }";
