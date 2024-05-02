@@ -38,7 +38,7 @@ cd java-project-71/app
 
 **Сравнение файлов в формате .json**
 
-[![asciicast](https://asciinema.org/a/657391.svg)](https://asciinema.org/a/657391)
+[![asciicast](https://asciinema.org/a/657394.svg)](https://asciinema.org/a/657394)
 
 
 **Сравнение файлов в формате .yml**
