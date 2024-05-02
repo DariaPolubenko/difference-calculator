@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import static hexlet.code.Formatter.formatter;
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -9,16 +11,12 @@ import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.Objects;
 
-import static hexlet.code.Formatter.formatter;
-
 public class Differ {
-
     public static String generate(String filepath1,  String filepath2) throws Exception {
         return generate(filepath1, filepath2, "stylish");
     }
 
     public static String generate(String filepath1,  String filepath2, String format) throws Exception {
-
         filepath1 = filepath1.contains("/") ? filepath1 : "src/test/resources/" + filepath1;
         filepath2 = filepath2.contains("/") ? filepath2 : "src/test/resources/" + filepath2;
 
@@ -26,7 +24,6 @@ public class Differ {
         var data2 = getData(filepath2);
 
         List<Map<String, Object>> differences = getDifference(data1, data2);
-
         return formatter(differences, format);
     }
 
@@ -36,20 +33,17 @@ public class Differ {
         if (!Files.exists(fullPath)) {
             throw new Exception("File '" + fullPath + "' does not exist");
         }
-
         var content = Files.readString(fullPath);
 
         String[] format = filepath.split("\\.");
-
         switch (format[1]) {
             case "json":
                 return Parser.parseJson(content);
             case "yml":
                 return Parser.parseYaml(content);
             default:
-                System.out.println("Don't have this format: " + format[1]);
+                System.out.println("Don't have this format: \"" + format[1] + "\"");
         }
-        System.exit(0);
         return null;
     }
 
@@ -58,6 +52,7 @@ public class Differ {
         data1.forEach((key, value) -> {
             unitedKeys.computeIfAbsent(key, (v) -> value);
         });
+
         var result = new ArrayList<Map<String, Object>>();
 
         unitedKeys.forEach((key, value) -> {
