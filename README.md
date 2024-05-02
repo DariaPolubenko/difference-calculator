@@ -51,6 +51,11 @@ _Сравнение файлов .yml_
 [![asciicast](https://asciinema.org/a/656766.svg)](https://asciinema.org/a/656766)
 
 
+_Сравнение файлов с вложенной структурой_
+
+[![asciicast](https://asciinema.org/a/657397.svg)](https://asciinema.org/a/657397)
+
+
 
 ### Для вывода результата в формате _plain_ или _json_
 Добавьте "-f plain" или "-f json" соответственно
@@ -65,5 +70,7 @@ _Вывод результата в форматах 'stylish' и 'plain'_
 _Вывод результата в формате 'json'_
 
 [![asciicast](https://asciinema.org/a/657254.svg)](https://asciinema.org/a/657254)
+
+
 
 
