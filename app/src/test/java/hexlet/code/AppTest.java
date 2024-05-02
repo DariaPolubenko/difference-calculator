@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 class AppTest {
     @Test
     public void test1() throws Exception {
-        var filepath1 = "file1.json";
+        var filepath1 = "src/test/resources/file1.json";
         var filepath2 = "file2.json";
 
         var actual = Differ.generate(filepath1, filepath2);
