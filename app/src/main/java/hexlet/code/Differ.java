@@ -1,5 +1,8 @@
 package hexlet.code;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -11,15 +14,41 @@ import static hexlet.code.Formatter.formatter;
 
 public class Differ {
 
-    public static String generate(Map<String, Object> data1, Map<String, Object> data2) throws Exception {
-        return generate(data1, data2, "stylish");
+    public static String generate(Path filepath1,  Path filepath2) throws Exception {
+        return generate(filepath1, filepath2, "stylish");
     }
 
-    public static String generate(Map<String, Object> data1, Map<String, Object> data2,
-                                  String format) throws Exception {
+    public static String generate(Path filepath1,  Path filepath2, String format) throws Exception {
+
+        var data1 = getData("src/test/resources/" + filepath1);
+        var data2 = getData("src/test/resources/" + filepath2);
+
         List<Map<String, Object>> differences = getDifference(data1, data2);
 
         return formatter(differences, format);
+    }
+
+    public static Map<String, Object> getData(String filepath) throws Exception {
+        var fullPath = Paths.get(filepath).toAbsolutePath().normalize();
+
+        if (!Files.exists(fullPath)) {
+            throw new Exception("File '" + fullPath + "' does not exist");
+        }
+
+        var content = Files.readString(fullPath);
+
+        String[] format = filepath.split("\\.");
+
+        switch (format[1]) {
+            case "json":
+                return Parser.parseJson(content);
+            case "yml":
+                return Parser.parseYaml(content);
+            default:
+                System.out.println("Don't have this format: " + format[1]);
+        }
+        System.exit(0);
+        return null;
     }
 
     public static List<Map<String, Object>> getDifference(Map<String, Object> data1, Map<String, Object> data2) {
