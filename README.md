@@ -48,7 +48,7 @@ _Сравнение файлов .json_
 
 _Сравнение файлов .yml_
 
-[![asciicast](https://asciinema.org/a/656766.svg)](https://asciinema.org/a/656766)
+[![asciicast](https://asciinema.org/a/657401.svg)](https://asciinema.org/a/657401)
 
 
 _Сравнение файлов с вложенной структурой_
