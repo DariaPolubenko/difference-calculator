@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.util.concurrent.Callable;
 
 
+
 @CommandLine.Command(
         name = "gendiff",
         mixinStandardHelpOptions = true,
@@ -23,14 +24,18 @@ public class App implements Callable<Integer> {
     private String format = "stylish";
 
     @Parameters(index = "0", description = "path to first file", paramLabel = "filepath1")
-    private Path filepath1;
+    private Path path1;
 
     @Parameters(index = "1", description = "path to second file", paramLabel = "filepath2")
-    private Path filepath2;
+    private Path path2;
 
     @Override
     public Integer call() throws Exception {
-        var diff = Differ.generate(filepath1 + "", filepath2 + "", format + "");
+
+        var filepath1 = path1 + "";
+        var filepath2 = path2 + "";
+
+        var diff = Differ.generate(filepath1, filepath2, format);
         System.out.println(diff);
         return 0;
     }
