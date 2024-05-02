@@ -32,6 +32,7 @@ public class Plain {
                 result.append("Property " + "'" + map.get("key") + "'" + " was removed" + "\n");
             }
         }
-        return result.toString();
+        var interimResult = result.toString();
+        return interimResult.substring(0, interimResult.length() - 1);
     }
 }
