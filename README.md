@@ -37,12 +37,12 @@ cd java-project-71/app
 ./build/install/app/bin/app file1.json file2.json
 ```
 
-_Сравнение файлов в формате .json_
+_Сравнение файлов .json_
 
 [![asciicast](https://asciinema.org/a/657394.svg)](https://asciinema.org/a/657394)
 
 
-_Сравнение файлов в формате .yml_
+_Сравнение файлов .yml_
 
 [![asciicast](https://asciinema.org/a/656766.svg)](https://asciinema.org/a/656766)
 
