@@ -74,7 +74,7 @@ _Вывод результата в форматах 'plain'_
 
 _Вывод результата в формате 'json'_
 
-[![asciicast](https://asciinema.org/a/657254.svg)](https://asciinema.org/a/657254)
+[![asciicast](https://asciinema.org/a/657405.svg)](https://asciinema.org/a/657405)
 
 
 
