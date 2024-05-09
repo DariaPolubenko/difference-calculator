@@ -6,10 +6,16 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Plain {
-    public static String formatter(List<Map<String, Object>> data) {
+    public static String formatter(List<Map<String, Object>> data) throws Exception {
+
         var result = new StringBuilder();
 
         for (var map : data) {
+            var value = map.get("value") instanceof ArrayList<?>
+                    || map.get("value") instanceof Map<?, ?> ? "[complex value]"
+                    : map.get("value") instanceof String ? "'" + map.get("value") + "'"
+                    : map.get("value");
+
             var value1 = map.get("value1") instanceof ArrayList<?>
                     || map.get("value1") instanceof Map<?, ?> ? "[complex value]"
                     : map.get("value1") instanceof String ? "'" + map.get("value1") + "'"
@@ -27,7 +33,7 @@ public class Plain {
                         + " was updated. From " + value1 + " to " + value2 + "\n");
             } else if (Objects.equals(map.get("type"), "added")) {
                 result.append("Property " + "'" + map.get("key") + "'"
-                        + " was added with value: " + value2 + "\n");
+                        + " was added with value: " + value + "\n");
             } else if (Objects.equals(map.get("type"), "removed")) {
                 result.append("Property " + "'" + map.get("key") + "'" + " was removed" + "\n");
             }
