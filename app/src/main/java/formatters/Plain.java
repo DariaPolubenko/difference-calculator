@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Plain {
-    public static String formatter(List<Map<String, Object>> data) throws Exception {
+    public static String formatter(List<Map<String, Object>> data) {
 
         var result = new StringBuilder();
 
