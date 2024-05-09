@@ -28,8 +28,7 @@ public class Tree {
                 if (Objects.equals(value1, value2)) {
                     helperMap.put("key", key);
                     helperMap.put("type", "unupdated");
-                    helperMap.put("value1", value1);
-                    helperMap.put("value2", value1);
+                    helperMap.put("value", value1);
 
                     result.add(helperMap);
                 } else {
@@ -43,16 +42,14 @@ public class Tree {
             } else if (!data1.containsKey(key)) {
                 helperMap.put("key", key);
                 helperMap.put("type", "added");
-                helperMap.put("value1", "");
-                helperMap.put("value2", value2);
+                helperMap.put("value", value2);
 
                 result.add(helperMap);
 
             } else if (!data2.containsKey(key)) {
                 helperMap.put("key", key);
                 helperMap.put("type", "removed");
-                helperMap.put("value1", value1);
-                helperMap.put("value2", "");
+                helperMap.put("value", value1);
 
                 result.add(helperMap);
             }
