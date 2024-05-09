@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 class AppTest {
     @Test
     public void test1() throws Exception {
-        var actual = Differ.generate("src/test/resources/file1.json", "file2.json");
+        var actual = Differ.generate("file1.json", "file2.json");
         var expected = "{\n"
                        + "  - follow: false\n"
                        + "    host: hexlet.io\n"
@@ -172,8 +172,7 @@ class AppTest {
     public void test10() throws Exception {
         var actual = Differ.generate("file31.json", "file32.json", "json");
 
-        var expected = "[ "
-                + "{\n"
+        var expected = "[ {\n"
                 + "  \"type\" : \"unupdated\",\n"
                 + "  \"value\" : [ \"a\", \"b\", \"c\" ],\n"
                 + "  \"key\" : \"chars1\"\n"
