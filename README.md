@@ -35,7 +35,7 @@ cd java-project-71/app
 
 
 ### Для сравнения файлов
-Введите команду _./build/install/app/bin/app_ и укажите файлы, которые необходимо сравнить
+Введите команду _./build/install/app/bin/app_, укажите относительные или абсолютные пути до файлов, которые необходимо сравнить
 ```bash
 ./build/install/app/bin/app file1.json file2.json
 ```
