@@ -28,4 +28,13 @@ public class Stylish {
         result.append("}");
         return result.toString();
     }
+
+    /*
+    public static Object isNull(Object value) {
+        if (value.isEmpty()) {
+            return "";
+        }
+        return value;
+    }
+     */
 }
