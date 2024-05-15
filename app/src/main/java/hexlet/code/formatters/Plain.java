@@ -11,20 +11,9 @@ public class Plain {
         var result = new StringBuilder();
 
         for (var map : data) {
-            var value = map.get("value") instanceof ArrayList<?>
-                    || map.get("value") instanceof Map<?, ?> ? "[complex value]"
-                    : map.get("value") instanceof String ? "'" + map.get("value") + "'"
-                    : map.get("value");
-
-            var value1 = map.get("value1") instanceof ArrayList<?>
-                    || map.get("value1") instanceof Map<?, ?> ? "[complex value]"
-                    : map.get("value1") instanceof String ? "'" + map.get("value1") + "'"
-                    : map.get("value1");
-
-            var value2 = map.get("value2") instanceof ArrayList<?>
-                    || map.get("value2") instanceof Map<?, ?> ? "[complex value]"
-                    : map.get("value2") instanceof String ? "'" + map.get("value2")  + "'"
-                    : map.get("value2");
+            var value = stringify(map.get("value"));
+            var value1 = stringify(map.get("value1"));
+            var value2 = stringify(map.get("value2"));
 
             if (Objects.equals(map.get("type"), "unupdated")) {
                 result.append("");
@@ -40,5 +29,14 @@ public class Plain {
         }
         var interimResult = result.toString();
         return interimResult.substring(0, interimResult.length() - 1);
+    }
+
+    public static Object stringify(Object value) {
+        if (value instanceof ArrayList<?> || value instanceof Map<?, ?>) {
+            return "[complex value]";
+        } else if (value instanceof String) {
+            return "'" + value + "'";
+        }
+        return value;
     }
 }
