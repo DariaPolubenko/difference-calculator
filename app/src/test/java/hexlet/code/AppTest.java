@@ -7,46 +7,60 @@ class AppTest {
     @Test
     public void test1() throws Exception {
         var actual = Differ.generate("src/test/resources/file1.json", "src/test/resources/file2.json");
-        var expected = getExpectedDefault1();
+        var expected = getExpectedStylish1();
         assertEquals(expected, actual);
     }
 
     @Test
     public void test2() throws Exception {
         var actual = Differ.generate("src/test/resources/file31.yml", "src/test/resources/file32.yml");
-        var expected = getExpectedDefault2();
+        var expected = getExpectedStylish2();
         assertEquals(expected, actual);
     }
 
     @Test
     public void test3() throws Exception {
+        var actual = Differ.generate("src/test/resources/file1.json", "src/test/resources/file2.json", "stylish");
+        var expected = getExpectedStylish1();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test4() throws Exception {
+        var actual = Differ.generate("src/test/resources/file31.yml", "src/test/resources/file32.yml", "stylish");
+        var expected = getExpectedStylish2();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test5() throws Exception {
         var actual = Differ.generate("src/test/resources/file31.json", "src/test/resources/file32.json", "plain");
         var expected = getExpectedPlain();
         assertEquals(expected, actual);
     }
 
     @Test
-    public void test4() throws Exception {
+    public void test6() throws Exception {
         var actual = Differ.generate("src/test/resources/file31.yml", "src/test/resources/file32.yml", "plain");
         var expected = getExpectedPlain();
         assertEquals(expected, actual);
     }
 
     @Test
-    public void test5() throws Exception {
+    public void test7() throws Exception {
         var actual = Differ.generate("src/test/resources/file31.json", "src/test/resources/file32.json", "json");
         var expected = getExpectedJson();
         assertEquals(expected, actual);
     }
 
     @Test
-    public void test6() throws Exception {
+    public void test8() throws Exception {
         var actual = Differ.generate("src/test/resources/file31.yml", "src/test/resources/file32.yml", "json");
         var expected = getExpectedJson();
         assertEquals(expected, actual);
     }
 
-    public static String getExpectedDefault1() {
+    public static String getExpectedStylish1() {
         return "{\n"
                 + "  - follow: false\n"
                 + "    host: hexlet.io\n"
@@ -57,7 +71,7 @@ class AppTest {
                 + "}";
     }
 
-    public static String getExpectedDefault2() {
+    public static String getExpectedStylish2() {
         return "{\n"
                 + "    chars1: [a, b, c]\n"
                 + "  - chars2: [d, e, f]\n"
