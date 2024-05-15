@@ -2,7 +2,6 @@ package hexlet.code;
 
 import static hexlet.code.Formatter.formatter;
 import static hexlet.code.Tree.getTree;
-import static hexlet.code.Content.formatContent;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -32,5 +31,16 @@ public class Differ {
         var result = formatContent(filepath, content);
 
         return result;
+    }
+
+    public static Map<String, Object> formatContent(String filepath, String content) throws Exception {
+        if (filepath.lastIndexOf("json") > 0) {
+            return Parser.parseJson(content);
+        } else if (filepath.lastIndexOf("yml") > 0) {
+            return Parser.parseYaml(content);
+        } else {
+            System.out.println("Don't have this format");
+        }
+        return null;
     }
 }
