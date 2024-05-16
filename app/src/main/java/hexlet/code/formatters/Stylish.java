@@ -10,9 +10,9 @@ public class Stylish {
         result.append("{\n");
 
         for (var map : data) {
-            var value = map.get("value");
-            var value1 = map.get("value1");
-            var value2 = map.get("value2");
+            var value = stringify(map.get("value"));
+            var value1 = stringify(map.get("value1"));
+            var value2 = stringify(map.get("value2"));
 
             if (Objects.equals(map.get("type"), "unupdated")) {
                 result.append("    " + map.get("key") + ": " + value + "\n");
@@ -29,12 +29,10 @@ public class Stylish {
         return result.toString();
     }
 
-    /*
-    public static Object isNull(Object value) {
-        if (value.isEmpty()) {
-            return "";
+    public static String stringify(Object value) {
+        if (value == null) {
+            return "null";
         }
-        return value;
+        return value + "";
     }
-     */
 }
