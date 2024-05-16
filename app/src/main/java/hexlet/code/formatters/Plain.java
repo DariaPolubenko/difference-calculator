@@ -31,17 +31,14 @@ public class Plain {
         return interimResult.substring(0, interimResult.length() - 1);
     }
 
-    public static Object stringify(Object value) {
+    public static String stringify(Object value) {
         if (value instanceof ArrayList<?> || value instanceof Map<?, ?>) {
             return "[complex value]";
         } else if (value instanceof String) {
             return "'" + value + "'";
+        } else if (value == null) {
+            return "null";
         }
-        /*
-        else if (value.isEmpty()) {
-            return "";
-        }
-         */
-        return value;
+        return value + "";
     }
 }
