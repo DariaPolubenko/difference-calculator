@@ -21,12 +21,13 @@ git clone git@github.com:DariaPolubenko/DifferenceCalculator
 ## Использование
 
 ### Для вывода справочной информации
-Перейдите в поддиректорию проекта:
+Введите следующие команды:
 ```bash
 cd java-project-71/app
+make install
 ```
 
-Введите следующую команду:
+Затем введите команду:
 ```bash
 ./build/install/app/bin/app -h
 ```
