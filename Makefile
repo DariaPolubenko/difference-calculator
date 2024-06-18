@@ -1,14 +1,14 @@
 run-dist:
-	./build/install/app/bin/app
+	make -C app run-dist
 
 lint:
-	./gradlew checkstyleMain
+	make -C app lint
 
 build:
-	./gradlew clean build
+	make -C app build
 
 test:
-	./gradlew test
+	make -C app test
 
 report:
 	make -C app report
