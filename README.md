@@ -14,7 +14,7 @@
 ## Установка
 В консоль введите команду:
 ```bash
-git clone git@github.com:DariaPolubenko/DifferenceCalculator
+git clone git@github.com:DariaPolubenko/difference-calculator.git
 ```
 
 
@@ -23,7 +23,7 @@ git clone git@github.com:DariaPolubenko/DifferenceCalculator
 ### Для вывода справочной информации
 Введите следующие команды:
 ```bash
-cd java-project-71/app
+cd difference-calculator/app
 make install
 ```
 
