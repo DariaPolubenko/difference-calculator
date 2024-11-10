@@ -10,9 +10,8 @@
 Утилита умеет работать с простыми и вложенными структурами, выводить результат в STYLISH (по умолчанию), PLAIN или JSON формате.
 Данную утилиту также можно установить как зависимость и использовать в любом другом пакете.
 
-### Технологический стек:
-Java, Gradle, IntelliJ IDEA, Picocli, Jackson, JUnit, Checkstyle, Make,
-Git, GitHub Actions (CI), Code Climate, Jacoco
+### Технологический стек
+_Java, Gradle, IntelliJ IDEA, Picocli, Jackson, JUnit, Checkstyle, Make, Git, GitHub Actions (CI), Code Climate, Jacoco_
 
 ## Установка
 В консоль введите команду:
